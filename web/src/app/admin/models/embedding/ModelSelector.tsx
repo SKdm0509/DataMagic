@@ -1,29 +1,18 @@
-import { EmbeddingModelDescriptor, HostedEmbeddingModel } from "./types";
+import { DefaultDropdown, StringOrNumberOption } from "@/components/Dropdown";
+import { Title, Text, Divider, Card } from "@tremor/react";
+import {
+  EmbeddingModelDescriptor,
+  FullEmbeddingModelDescriptor,
+} from "./embeddingModels";
 import { FiStar } from "react-icons/fi";
-
-export function ModelPreview({ model }: { model: EmbeddingModelDescriptor }) {
-  return (
-    <div
-      className={
-        "p-2 border border-border rounded shadow-md bg-hover-light w-96 flex flex-col"
-      }
-    >
-      <div className="font-bold text-lg flex">{model.model_name}</div>
-      <div className="text-sm mt-1 mx-1">
-        {model.description
-          ? model.description
-          : "Custom model—no description is available."}
-      </div>
-    </div>
-  );
-}
+import { CustomModelForm } from "./CustomModelForm";
 
 export function ModelOption({
   model,
   onSelect,
 }: {
-  model: HostedEmbeddingModel;
-  onSelect?: (model: HostedEmbeddingModel) => void;
+  model: FullEmbeddingModelDescriptor;
+  onSelect?: (model: EmbeddingModelDescriptor) => void;
 }) {
   return (
     <div
@@ -79,8 +68,8 @@ export function ModelSelector({
   modelOptions,
   setSelectedModel,
 }: {
-  modelOptions: HostedEmbeddingModel[];
-  setSelectedModel: (model: HostedEmbeddingModel) => void;
+  modelOptions: FullEmbeddingModelDescriptor[];
+  setSelectedModel: (model: EmbeddingModelDescriptor) => void;
 }) {
   return (
     <div>
