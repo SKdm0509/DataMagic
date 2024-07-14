@@ -1,5 +1,5 @@
 <h2 align="center">
-<a href="https://www.danswer.ai/"> <img width="50%" src="https://github.com/danswer-owners/danswer/blob/1fabd9372d66cd54238847197c33f091a724803b/DanswerWithName.png?raw=true)" /></a>
+<a href="https://www.danswer.ai/"> <img width="50%" src="https://github.com/SKdm0509/DataMagic/blob/initial_setup/web/public/LogoWithName.png" /></a>
 </h2>
 
 <p align="center">
