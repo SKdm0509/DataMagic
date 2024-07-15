@@ -88,7 +88,7 @@ const Main = () => {
       {popup}
       <Text>
         This connector allows you to sync all your Discourse Topics into
-        DataMagic. More details on how to setup the Discourse connector can be
+        Danswer. More details on how to setup the Discourse connector can be
         found in{" "}
         <a
           className="text-link"

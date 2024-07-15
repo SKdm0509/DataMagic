@@ -185,7 +185,7 @@ export const AIMessage = ({
             <div className="font-bold text-emphasis ml-2 my-auto">
               {alternativeAssistant
                 ? alternativeAssistant.name
-                : personaName || "DataMagic"}
+                : personaName || "Danswer"}
             </div>
 
             {query === undefined &&
