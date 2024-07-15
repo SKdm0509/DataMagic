@@ -9,6 +9,7 @@ import { BasicClickable, BasicSelectable } from "@/components/BasicClickable";
 import { ChatSession } from "../interfaces";
 
 import {
+  COMPANY_NAME,
   NEXT_PUBLIC_DO_NOT_USE_TOGGLE_OFF_DANSWER_POWERED,
   NEXT_PUBLIC_NEW_CHAT_DIRECTS_TO_SAME_PERSONA,
 } from "@/lib/constants";
@@ -89,12 +90,12 @@ export const ChatSidebar = ({
 
                   {!NEXT_PUBLIC_DO_NOT_USE_TOGGLE_OFF_DANSWER_POWERED && (
                     <p className="text-xs text-subtle -mt-1.5">
-                      Powered by Danswer
+                      {`Powered by ${COMPANY_NAME}`}
                     </p>
                   )}
                 </div>
               ) : (
-                <HeaderTitle>Danswer</HeaderTitle>
+                <HeaderTitle>{COMPANY_NAME}</HeaderTitle>
               )}
             </div>
           </Link>

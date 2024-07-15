@@ -44,6 +44,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
+import { COMPANY_NAME } from "@/lib/constants";
 
 function findSearchTool(tools: ToolSnapshot[]) {
   return tools.find((tool) => tool.in_code_tool_id === "SearchTool");
@@ -616,9 +617,9 @@ export function AssistantEditor({
                                       No Document Sets available.{" "}
                                       {user?.role !== "admin" && (
                                         <>
-                                          If this functionality would be useful,
+                                          {`If this functionality would be useful,
                                           reach out to the administrators of
-                                          Danswer for assistance.
+                                          ${COMPANY_NAME} for assistance.`}
                                         </>
                                       )}
                                     </Italic>
