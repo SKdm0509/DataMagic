@@ -75,7 +75,7 @@ const MainSection = () => {
       <Text>
         The Salesforce connector allows you to index and search through your
         Salesforce data. Once setup, all indicated Salesforce data will be will
-        be queryable within DataMagic.
+        be queryable within Danswer.
       </Text>
 
       <Title className="mb-2 mt-6 ml-auto mr-auto">
@@ -237,9 +237,9 @@ const MainSection = () => {
                     {" "}
                     here{" "}
                   </a>
-                  for an example of how DataMagic uses the objects. <br />
+                  for an example of how Danswer uses the objects. <br />
                   <br />
-                  If unsure, don&apos;t specify any objects and DataMagic will
+                  If unsure, don&apos;t specify any objects and Danswer will
                   default to indexing by &apos;Account&apos;.
                   <br />
                   <br />

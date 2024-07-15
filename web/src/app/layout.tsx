@@ -2,7 +2,7 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 import { getCombinedSettings } from "@/components/settings/lib";
-import { COMPANY_NAME, CUSTOM_ANALYTICS_ENABLED } from "@/lib/constants";
+import { CUSTOM_ANALYTICS_ENABLED } from "@/lib/constants";
 import { SettingsProvider } from "@/components/settings/SettingsProvider";
 import { Metadata } from "next";
 import { buildClientUrl } from "@/lib/utilsSS";
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
       : buildClientUrl("/danswer.ico");
 
   return {
-    title: dynamicSettings.enterpriseSettings?.application_name ?? COMPANY_NAME,
+    title: dynamicSettings.enterpriseSettings?.application_name ?? "Danswer",
     description: "Question answering for your documents",
     icons: {
       icon: logoLocation,

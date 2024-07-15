@@ -11,7 +11,7 @@ export function DanswerInitializingLoader() {
       <Logo height={96} width={96} className="mx-auto mb-3" />
       <Bold>
         Initializing{" "}
-        {settings?.enterpriseSettings?.application_name ?? "DataMagic"}
+        {settings?.enterpriseSettings?.application_name ?? "Danswer"}
       </Bold>
     </div>
   );

@@ -234,7 +234,7 @@ const Main = () => {
       />
 
       <Title className="mb-2 mt-6 ml-auto mr-auto">
-        Step 2: Authenticate with DataMagic
+        Step 2: Authenticate with Danswer
       </Title>
       <GmailOAuthSection
         setPopup={setPopup}

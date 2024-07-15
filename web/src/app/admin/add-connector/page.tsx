@@ -5,7 +5,6 @@ import { SourceCategory, SourceMetadata } from "@/lib/search/interfaces";
 import { listSourceMetadata } from "@/lib/sources";
 import { Title, Text } from "@tremor/react";
 import Link from "next/link";
-import { COMPANY_NAME } from "@/lib/constants";
 
 function SourceTile({ sourceMetadata }: { sourceMetadata: SourceMetadata }) {
   return (
@@ -50,9 +49,9 @@ export default function Page() {
       />
 
       <Text>
-        {`Connect ${COMPANY_NAME} to your organization&apos;s knowledge sources.
-        We&apos;ll automatically sync your data into ${COMPANY_NAME}, so you can find
-        exactly what you&apos;re looking for in one place.`}
+        Connect Danswer to your organization&apos;s knowledge sources.
+        We&apos;ll automatically sync your data into Danswer, so you can find
+        exactly what you&apos;re looking for in one place.
       </Text>
 
       <div className="flex mt-8">
