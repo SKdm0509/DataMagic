@@ -10,6 +10,7 @@ import { EmailPasswordForm } from "../login/EmailPasswordForm";
 import { Card, Title, Text } from "@tremor/react";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { COMPANY_NAME } from "@/lib/constants";
 
 const Page = async () => {
   // catch cases where the backend is completely unreachable here
@@ -56,7 +57,7 @@ const Page = async () => {
           <Card className="mt-4 w-96">
             <div className="flex">
               <Title className="mb-2 mx-auto font-bold">
-                Sign Up for Danswer
+                {`Sign Up for ${COMPANY_NAME}`}
               </Title>
             </div>
             <EmailPasswordForm

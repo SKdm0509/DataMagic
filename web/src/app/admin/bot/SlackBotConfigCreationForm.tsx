@@ -79,9 +79,13 @@ export const SlackBotCreationForm = ({
               existingSlackBotConfig?.channel_config?.respond_to_bots || false,
             enable_auto_filters:
               existingSlackBotConfig?.enable_auto_filters || false,
-            respond_member_group_list:
+            respond_member_group_list: (
               existingSlackBotConfig?.channel_config
-                ?.respond_member_group_list ?? [],
+                ?.respond_team_member_list ?? []
+            ).concat(
+              existingSlackBotConfig?.channel_config
+                ?.respond_slack_group_list ?? []
+            ),
             still_need_help_enabled:
               existingSlackBotConfig?.channel_config?.follow_up_tags !==
               undefined,
@@ -129,7 +133,14 @@ export const SlackBotCreationForm = ({
               channel_names: values.channel_names.filter(
                 (channelName) => channelName !== ""
               ),
-              respond_member_group_list: values.respond_member_group_list,
+              respond_team_member_list: values.respond_member_group_list.filter(
+                (teamMemberEmail) =>
+                  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(teamMemberEmail)
+              ),
+              respond_slack_group_list: values.respond_member_group_list.filter(
+                (slackGroupName) =>
+                  !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(slackGroupName)
+              ),
               usePersona: usingPersonas,
               standard_answer_categories: values.standard_answer_categories.map(
                 (category) => category.id
@@ -159,8 +170,8 @@ export const SlackBotCreationForm = ({
               const errorMsg = responseJson.detail || responseJson.message;
               setPopup({
                 message: isUpdate
-                  ? `Error updating DanswerBot config - ${errorMsg}`
-                  : `Error creating DanswerBot config - ${errorMsg}`,
+                  ? `Error updating DataMagicBot config - ${errorMsg}`
+                  : `Error creating DataMagicBot config - ${errorMsg}`,
                 type: "error",
               });
             }
@@ -182,7 +193,7 @@ export const SlackBotCreationForm = ({
                       &apos;#ask-danswer&apos;.
                       <br />
                       <br />
-                      <i>NOTE</i>: you still need to add DanswerBot to the
+                      <i>NOTE</i>: you still need to add DataMagicBot to the
                       channel(s) in Slack itself. Setting this config will not
                       auto-add the bot to the channel.
                     </div>
@@ -194,15 +205,15 @@ export const SlackBotCreationForm = ({
                   label="Response Format"
                   subtext={
                     <>
-                      If set to Citations, DanswerBot will respond with a direct
+                      If set to Citations, DataMagicBot will respond with a direct
                       answer with inline citations. It will also provide links
                       to these cited documents below the answer. When in doubt,
                       choose this option.
                       <br />
                       <br />
-                      If set to Quotes, DanswerBot will respond with a direct
+                      If set to Quotes, DataMagicBot will respond with a direct
                       answer as well as with quotes pulled from the context
-                      documents to support that answer. DanswerBot will also
+                      documents to support that answer. DataMagicBot will also
                       give a list of relevant documents. Choose this option if
                       you want a very detailed response AND/OR a list of
                       relevant documents would be useful just in case the LLM
@@ -217,7 +228,7 @@ export const SlackBotCreationForm = ({
 
                 <Divider />
 
-                <SectionHeader>When should DanswerBot respond?</SectionHeader>
+                <SectionHeader>When should DataMagicBot respond?</SectionHeader>
 
                 <BooleanFormField
                   name="answer_validity_check_enabled"
@@ -231,13 +242,13 @@ export const SlackBotCreationForm = ({
                 />
                 <BooleanFormField
                   name="respond_tag_only"
-                  label="Respond to @DanswerBot Only"
-                  subtext="If set, DanswerBot will only respond when directly tagged"
+                  label="Respond to @DataMagicBot Only"
+                  subtext="If set, DataMagicBot will only respond when directly tagged"
                 />
                 <BooleanFormField
                   name="respond_to_bots"
                   label="Responds to Bot messages"
-                  subtext="If not set, DanswerBot will always ignore messages from Bots"
+                  subtext="If not set, DataMagicBot will always ignore messages from Bots"
                 />
                 <BooleanFormField
                   name="enable_auto_filters"
@@ -246,13 +257,13 @@ export const SlackBotCreationForm = ({
                 />
                 <TextArrayField
                   name="respond_member_group_list"
-                  label="Team Member Emails Or Slack Group Names/Handles"
-                  subtext={`If specified, DanswerBot responses will only be 
+                  label="Team Member Emails Or Slack Group Names"
+                  subtext={`If specified, DataMagicBot responses will only be 
                   visible to the members or groups in this list. This is
-                  useful if you want DanswerBot to operate in an
+                  useful if you want DataMagicBot to operate in an
                   "assistant" mode, where it helps the team members find
-                  answers, but let's them build on top of DanswerBot's response / throw 
-                  out the occasional incorrect answer. Group names and handles are case sensitive.`}
+                  answers, but let's them build on top of DataMagicBot's response / throw 
+                  out the occasional incorrect answer. Group names are case sensitive.`}
                   values={values}
                 />
                 <Divider />
@@ -261,8 +272,8 @@ export const SlackBotCreationForm = ({
 
                 <BooleanFormField
                   name="still_need_help_enabled"
-                  label="Should Danswer give a “Still need help?” button?"
-                  subtext={`If specified, DanswerBot's response will include a button at the bottom 
+                  label="Should DataMagic give a “Still need help?” button?"
+                  subtext={`If specified, DataMagicBot's response will include a button at the bottom 
                   of the response that asks the user if they still need help.`}
                 />
                 {values.still_need_help_enabled && (
@@ -277,8 +288,8 @@ export const SlackBotCreationForm = ({
                         button. For example, &apos;mark@acme.com&apos;.
                         <br />
                         Or provide a user group by either the name or the
-                        handle. For example, &apos;Danswer Team&apos; or
-                        &apos;danswer-team&apos;.
+                        handle. For example, &apos;DataMagic Team&apos; or
+                        &apos;datamagic-team&apos;.
                         <br />
                         <br />
                         If no emails are provided, we will not tag anyone and
@@ -296,7 +307,7 @@ export const SlackBotCreationForm = ({
                   </SectionHeader>
                   <Text>
                     Use either a Persona <b>or</b> Document Sets to control how
-                    DanswerBot answers.
+                    DataMagicBot answers.
                   </Text>
                   <Text>
                     <ul className="list-disc mt-2 ml-4">
@@ -306,7 +317,7 @@ export const SlackBotCreationForm = ({
                       </li>
                       <li>
                         You should use Document Sets if you just want to control
-                        which documents DanswerBot uses as references.
+                        which documents DataMagicBot uses as references.
                       </li>
                     </ul>
                   </Text>
@@ -334,8 +345,8 @@ export const SlackBotCreationForm = ({
                           <div>
                             <div>
                               <SubLabel>
-                                The document sets that DanswerBot should search
-                                through. If left blank, DanswerBot will search
+                                The document sets that DataMagicBot should search
+                                through. If left blank, DataMagicBot will search
                                 through all documents.
                               </SubLabel>
                             </div>
