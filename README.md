@@ -1,59 +1,47 @@
 <h2 align="center">
-<a href="https://www.danswer.ai/"> <img width="50%" src="https://github.com/SKdm0509/DataMagic/blob/initial_setup/web/public/LogoWithName.png" /></a>
+<a href="https://datamagic.ai/"> <img width="50%" src="https://github.com/SKdm0509/DataMagic/blob/initial_setup/web/public/LogoWithName.png" /></a>
 </h2>
 
 <p align="center">
-<p align="center">Open Source Gen-AI Chat + Unified Search.</p>
+<p align="center">Agentic Knowledge Platform and Productivity SaaS for Data Teams.</p>
 
-<p align="center">
-<a href="https://docs.danswer.dev/" target="_blank">
-    <img src="https://img.shields.io/badge/docs-view-blue" alt="Documentation">
-</a>
-<a href="https://join.slack.com/t/danswer/shared_invite/zt-2lcmqw703-071hBuZBfNEOGUsLa5PXvQ" target="_blank">
-    <img src="https://img.shields.io/badge/slack-join-blue.svg?logo=slack" alt="Slack">
-</a>
-<a href="https://discord.gg/TDJ59cGV2X" target="_blank">
-    <img src="https://img.shields.io/badge/discord-join-blue.svg?logo=discord&logoColor=white" alt="Discord">
-</a>
-<a href="https://github.com/danswer-ai/danswer/blob/main/README.md" target="_blank">
-    <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=blue" alt="License">
-</a>
-</p>
 
-<strong>[DataMagic](https://www.danswer.ai/)</strong> is the AI Assistant connected to your company's docs, apps, and people. 
-DataMagic provides a Chat interface and plugs into any LLM of your choice. DataMagic can be deployed anywhere and for any 
+
+<strong>[DataMagic](https://datamagic.ai/)</strong> is an Agentic Knowledge Platform connecting your company's docs, data, code, and people. 
+DataMagic provides a Chat interface for the members of your data teams to learn more about your data stack on-demand. DataMagic can be deployed anywhere and for any 
 scale - on a laptop, on-premise, or to cloud. Since you own the deployment, your user data and chats are fully in your 
 own control.
 
 DataMagic also serves as a Unified Search across all common workplace tools such as Slack, Google Drive, Confluence, etc.
-By combining LLMs and team specific knowledge, DataMagic becomes a subject matter expert for the team. Imagine ChatGPT if
-it had access to your team's unique knowledge! It enables questions such as "A customer wants feature X, is this already
-supported?" or "Where's the pull request for feature Y?"
+By combining LLMs and team specific knowledge, DataMagic becomes a subject matter expert for the team. 
+Data Magic also brings Agentic workflows to automate activities like new member onboarding and offboarding, data artefact owner mapping, ambiguity resolution, etc.
+It answers questions like "Why is schema ABC architected this way?" or "Has task XYZ been done in the past?".
+It also performs task like "Create a 1 week training program from to onboard a data engineer for team A who will work on projects M."
 
 
 ## Deployment
 
-DataMagic can easily be run locally (even on a laptop) or deployed on a virtual machine with a single
-`docker compose` command. Checkout our [docs](https://docs.danswer.dev/quickstart) to learn more.
+DataMagic can easily be run locally (even on a laptop) or deployed on a virtual machine.
+Reach out to us [here](https://datamagic.ai/) to get started.
 
-We also have built-in support for deployment on Kubernetes. Files for that can be found [here](https://github.com/danswer-ai/danswer/tree/main/deployment/kubernetes).
+We provide whiteglove service and support to all our customers.
 
 
 ## 💃 Main Features 
 * Chat UI with the ability to select documents to chat with.
-* Create custom AI Assistants with different prompts and backing knowledge sets.
-* Connect DataMagic with LLM of your choice (self-host for a fully airgapped solution).
-* Document Search + AI Answers for natural language queries.
-* Connectors to all common workplace tools like Google Drive, Confluence, Slack, etc.
-* Slack integration to get answers and search results directly in Slack.
+* Slack integration to get answers and search results directly in Slack with source citation.
+* Data Search + AI Answers for natural language queries.
+* Connectors to all common data and workplace tools like Snowflake, Drive, Confluence, Slack, etc.
+
 
 
 ## 🚧 Roadmap
-* Chat/Prompt sharing with specific teammates and user groups.
+* Onaboarding Agent in Slack to traing new members from Day-1
 * Multi-Model model support, chat with images, video etc.
-* Choosing between LLMs and parameters during chat session.
-* Tool calling and agent configurations options.
-* Organizational understanding and ability to locate and suggest experts from your team.
+* Team and individual knowledge graph visualisation and knowledge gap identification.
+* Offboarding agent to create knowledge transfer plan and questionaire for outgoing team members.
+* Chat agent inside tools like JIRA, Confulence and GitHub to avoid context switching.
+* Organizational understanding and ability to locate and suggest owners of specific data artefacts/schema, projects, past work.
 
 
 ## Other Noteable Benefits of DataMagic
@@ -85,6 +73,7 @@ Efficiently pulls the latest changes from:
   * Hubspot
   * Local Files
   * Websites
+  * Datalakes
   * And more ...
 
 
