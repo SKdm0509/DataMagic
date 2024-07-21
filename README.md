@@ -22,9 +22,8 @@ It also performs task like "Create a 1 week training program from to onboard a d
 ## Deployment
 
 DataMagic can easily be run locally (even on a laptop) or deployed on a virtual machine.
-Reach out to us [here](https://datamagic.ai/) to get started.
 
-We provide whiteglove service and support to all our customers.
+We provide white glove service and support to all our customers. Reach out to us [here](https://datamagic.ai/) to get started.
 
 
 ## 💃 Main Features 
